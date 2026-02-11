@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MyBus Passenger</title>
+
+<link rel="stylesheet"
+ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="passenger.css">
+</head>
+<body>
+
+<header>
+<h1>🚌 MyBus Passenger</h1>
+<span id="status">Locating...</span>
+</header>
+
+<main>
+
+<section class="card">
+<h2>📍 Live Tracking</h2>
+
+<div id="map-wrapper">
+  <div id="map"></div>
+
+  <div id="routeLoader">
+    <img src="../assets/images/" class="loading-bus"/>
+    <p>Calculating route...</p>
+  </div>
+</div>
+
+<section class="stats-grid">
+
+  <div class="stat-card">
+    <h3>📏 Distance</h3>
+    <p id="distance">-- km</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>⏱ ETA</h3>
+    <p id="eta">-- min</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>🕒 Departure Time</h3>
+    <p id="departureTime">--</p>
+  </div>
+
+  <div class="stat-card">
+    <h3>🏁 Arrival Time</h3>
+    <p id="arrivalTime">--</p>
+  </div>
+
+</section>
+
+
+</section>
+
+<section class="card">
+<h2>🗺 Route Finder</h2>
+<input type="text" id="destination" placeholder="Enter destination">
+<button onclick="findRoute()">Find Best Route</button>
+<div id="routeResult"></div>
+</section>
+
+<section class="card">
+<h2>💳 Payment & Student Card</h2>
+<button onclick="pay()">Pay Ticket</button>
+<button onclick="linkStudentCard()">Link Student Card</button>
+</section>
+
+<section class="card">
+<h2>📩 Complaint</h2>
+<textarea id="complaintText"></textarea>
+<button onclick="submitComplaint()">Send Complaint</button>
+</section>
+
+<section class="card" id="arrivalAlert" style="display:none;">
+🚨 Bus is less than 1 km away!
+</section>
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="passenger.js"></script>
+</body>
+</html>
