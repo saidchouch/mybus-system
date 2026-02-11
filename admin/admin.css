@@ -59,3 +59,21 @@ input {
   padding: 8px;
   width: 60%;
 }
+.bus-wrapper {
+  text-align: center;
+}
+
+.bus-label-admin {
+  font-size: 18px;        /* Bigger */
+  font-weight: bold;
+  background: #e74c3c;    /* Strong color */
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.bus-emoji {
+  font-size: 28px;
+}
