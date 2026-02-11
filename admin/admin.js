@@ -48,10 +48,15 @@ function createFleet() {
 
     const marker = L.marker([lat, lng], {
       icon: L.divIcon({
-        className: "bus-icon",
-        html: `🚌<div style="font-size:10px;">L${i+1}</div>`,
-        iconSize: [40, 40]
-      })
+       className: "bus-wrapper",
+       html: `
+         <div class="bus-label-admin">L${i+1}</div>
+         <div class="bus-emoji">🚌</div>
+       `,
+       iconSize: [70, 70],
+       iconAnchor: [35, 50]
+     })
+
     })
     .addTo(map)
     .bindPopup(`
@@ -206,3 +211,4 @@ function getColor(i) {
   ];
   return colors[i % colors.length];
 }
+
