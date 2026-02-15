@@ -1,0 +1,344 @@
+/* =========================================
+   GLOBAL STYLE
+========================================= */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+.passenger-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  background: orange;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.language-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.alert-card {
+  background: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* RTL Support */
+body[dir="rtl"] .passenger-header {
+  flex-direction: row-reverse;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* =========================================
+   CARD STYLE
+========================================= */
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   MAP SECTION
+========================================= */
+
+#map-wrapper {
+  position: relative;
+  height: 420px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* =========================================
+   ROUTE LOADER
+========================================= */
+
+#routeLoader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-bus {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   DISTANCE + ETA TEXT
+========================================= */
+
+#distance, #eta, #departureTime, #arrivalTime {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+/* =========================================
+   ALERT SECTION
+========================================= */
+
+#arrivalAlert {
+  background: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #f39c12;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(243,156,18,0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(243,156,18,0); }
+  100% { box-shadow: 0 0 0 0 rgba(243,156,18,0); }
+}
+
+/* =========================================
+   BUTTON STYLE
+========================================= */
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #2c5364;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #203a43;
+}
+
+/* =========================================
+   INPUT & TEXTAREA
+========================================= */
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+/* =========================================
+   BUS MARKER STYLE
+========================================= */
+
+.bus-wrapper {
+  text-align: center;
+}
+
+.bus-label {
+  font-size: 12px;
+  font-weight: bold;
+  background: #2c5364;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+}
+
+.bus-icon {
+  font-size: 28px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+  }
+
+  #map-wrapper {
+    height: 300px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================
+   ROUTE FINDER – SIMPLE MODERN DESIGN
+========================================= */
+
+.card label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #2c5364;
+}
+
+#fromStop,
+#toStop {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  background: #f9fafc;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+#fromStop:focus,
+#toStop:focus {
+  outline: none;
+  border-color: #3a7bd5;
+  box-shadow: 0 0 0 3px rgba(58,123,213,0.15);
+  background: #fff;
+}
+
+/* Button Styling */
+.card button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   ROUTE RESULTS
+========================================= */
+
+#routeResult {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f4f8ff;
+  border-radius: 12px;
+  border-left: 5px solid #3a7bd5;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#routeResult h4 {
+  margin-bottom: 10px;
+  color: #2c5364;
+  font-size: 15px;
+}
+
+#routeResult div {
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+#routeResult div:hover {
+  background: #eaf2ff;
+  transform: translateX(3px);
+}
+
+/* Transfer Style */
+#routeResult .transfer {
+  background: #fff4e5;
+  border-left: 4px solid #f39c12;
+}
+
+/* Error Message */
+#routeResult p {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .card {
+    padding: 15px;
+  }
+
+  #routeResult {
+    font-size: 13px;
+  }
+
+}
+

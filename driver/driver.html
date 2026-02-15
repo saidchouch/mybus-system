@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="driver"></title>
+
+<link rel="stylesheet"
+ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="driver.css">
+</head>
+
+<body>
+
+<header class="driver-header">
+  <div class="header-left">
+    <h1 data-i18n="driver"></h1>
+    <span id="driverStatus" class="status-badge">Offline</span>
+  </div>
+
+  <div class="header-right">
+    <select class="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+</header>
+
+<main>
+
+<section class="card">
+<h2 data-i18n="navigation"></h2>
+<div id="map"></div>
+</section>
+
+<section class="card">
+<h2 data-i18n="assignedRoute"></h2>
+<p id="routeInfo" data-i18n="noAssignment"></p>
+<button onclick="acceptRoute()" data-i18n="accept"></button>
+<button onclick="completeRoute()" data-i18n="complete"></button>
+</section>
+
+<section class="card">
+<h2 data-i18n="passengerValidation"></h2>
+<button onclick="validateBoarding()" data-i18n="validateBoarding"></button>
+<button onclick="validateExit()" data-i18n="validateExit"></button>
+</section>
+
+<section class="card">
+<h2 data-i18n="incident"></h2>
+<textarea id="incidentText" data-i18n-placeholder="incidentPlaceholder"></textarea>
+<button onclick="sendIncident()" data-i18n="reportIncident"></button>
+</section>
+
+<section class="card">
+<h2 data-i18n="controlCenter"></h2>
+
+<div id="chatBox" class="chat-box"></div>
+
+<div class="chat-input">
+<input type="text" id="messageInput" data-i18n-placeholder="typeMessage" />
+<button onclick="sendMessage()" data-i18n="send"></button>
+</div>
+</section>
+
+<section class="card">
+<h2 data-i18n="schedule"></h2>
+<ul id="scheduleList"></ul>
+</section>
+
+<section class="card">
+<h2 data-i18n="history"></h2>
+<ul id="historyList"></ul>
+</section>
+
+<section class="card action-buttons">
+<button onclick="togglePause()" data-i18n="pauseResume"></button>
+<button onclick="endService()" data-i18n="endService"></button>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/js/translations.js"></script>
+<script src="../assets/js/language.js"></script>
+<script src="driver.js"></script>
+
+</body>
+</html>
