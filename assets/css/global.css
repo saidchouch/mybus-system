@@ -1,0 +1,254 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2a5298);
+  color: #333;
+}
+
+/* =========================================
+   HEADER – PREMIUM STYLE
+========================================= */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 55px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+.logo-section h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.logo-section p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.language-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* =========================================
+   MAIN NAV – CENTERED LAYOUT
+========================================= */
+
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   NAV CARDS – LUXURY STYLE
+========================================= */
+
+.nav-card {
+  width: 260px;
+  height: 260px;
+  background: white;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #1e3c72;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow border effect */
+.nav-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 2px;
+  background: linear-gradient(135deg, #3498db, #1e3c72);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.nav-card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.nav-card img {
+  width: 95px;
+  transition: 0.4s ease;
+}
+
+.nav-card:hover img {
+  transform: scale(1.15);
+}
+
+.nav-card span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.main-footer {
+  text-align: center;
+  padding: 18px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  color: white;
+  font-size: 14px;
+}
+
+/* =========================================
+   NOTIFICATIONS – IMPROVED
+========================================= */
+
+.notification-container {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification {
+  min-width: 260px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: slideIn 0.4s ease;
+  transition: 0.4s ease;
+}
+
+.notification.success { background: #2ecc71; }
+.notification.info    { background: #3498db; }
+.notification.warning { background: #f39c12; }
+.notification.error   { background: #e74c3c; }
+
+.fade-out {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   RTL SUPPORT
+========================================= */
+
+body[dir="rtl"] .main-header {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .logo-section {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .main-nav {
+  direction: rtl;
+}
+
+/* =========================================
+   RESPONSIVE – TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .main-nav {
+    gap: 30px;
+  }
+
+  .nav-card {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* =========================================
+   RESPONSIVE – MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .main-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .main-nav {
+    padding: 40px 15px;
+    gap: 25px;
+  }
+
+  .nav-card {
+    width: 85%;
+    max-width: 320px;
+    height: 200px;
+  }
+
+  .nav-card img {
+    width: 70px;
+  }
+
+  .nav-card span {
+    font-size: 18px;
+  }
+}

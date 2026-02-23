@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="passenger"></title>
+
+<link rel="stylesheet"
+ href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="passenger.css">
+</head>
+
+<body>
+
+<header class="passenger-header">
+  <div class="header-left">
+    <h1 data-i18n="passenger"></h1>
+    <span id="selectedInfo" style="margin-left:15px;"></span>
+    <span id="status" class="status-badge" data-i18n="locating"></span>
+  </div>
+
+  <div class="header-right">
+    <select class="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+</header>
+
+<main>
+
+<section class="card">
+<section class="card alert-card" id="arrivalAlert" style="display:none;">
+<span data-i18n="arrivalAlert"></span>
+</section>
+<h2 data-i18n="liveTracking"></h2>
+
+<div id="map-wrapper">
+  <div id="map"></div>
+
+  <div id="routeLoader">
+    <img src="../assets/images/" class="loading-bus"/>
+    <p data-i18n="calculatingRoute"></p>
+  </div>
+</div>
+
+<section class="stats-grid">
+
+  <div class="stat-card">
+    <h3 data-i18n="distance"></h3>
+    <p id="distance">-- km</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 data-i18n="eta"></h3>
+    <p id="eta">-- min</p>
+    <div id="delayInfo" style="margin-top:10px; font-weight:bold;"></div>
+  </div>
+
+  <div class="stat-card">
+    <h3 data-i18n="departureTime"></h3>
+    <p id="departureTime">--</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 data-i18n="arrivalTime"></h3>
+    <p id="arrivalTime">--</p>
+  </div>
+
+</section>
+</section>
+
+<section class="card">
+  <h2 data-i18n="routeFinder"></h2>
+
+  <label>From:</label>
+  <select id="fromStop"></select>
+
+  <label>To:</label>
+  <select id="toStop"></select>
+
+  <button onclick="findRoute()" data-i18n="findRoute"></button>
+
+  <div id="routeResult" style="margin-top:15px;"></div>
+</section>
+
+
+<section class="card">
+<h2 data-i18n="payment"></h2>
+<button onclick="payTicket()" data-i18n="payTicket"></button>
+<button onclick="linkStudentCard()" data-i18n="linkStudentCard"></button>
+</section>
+
+<section class="card">
+<h2 data-i18n="complaint"></h2>
+<textarea id="complaintText" data-i18n-placeholder="writeComplaint"></textarea>
+<button onclick="submitComplaint()" data-i18n="sendComplaint"></button>
+</section>
+
+
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="../assets/data/meknes_all_bus_lines.js"></script>
+<script src="passenger.js"></script>
+<script src="../assets/js/systemCore.js"></script>
+<script src="../assets/js/systemLogger.js"></script>
+<script src="../assets/js/systemStats.js"></script>
+<script src="../assets/js/notification.js"></script>
+
+<script src="../assets/js/translations.js"></script>
+<script src="../assets/js/language.js"></script>
+<script src="../assets/data/lines_table.js"></script>
+
+<script src="page-specific.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #eef4ff, #f8fbff);
+  color: #2c3e50;
+  min-height: 100vh;
+}
+
+/* =========================================
+   COMPACT VISUAL HEADER
+========================================= */
+
+.passenger-header {
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: white;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-left h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.status-badge {
+  background: orange;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.language-select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* RTL */
+body[dir="rtl"] .passenger-header {
+  flex-direction: row-reverse;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* =========================================
+   CARD DESIGN
+========================================= */
+
+.card {
+  background: white;
+  padding: 22px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   MAP
+========================================= */
+
+#map-wrapper {
+  position: relative;
+  height: 420px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   LIVE STATS GRID  (FIXED - MATCHES HTML)
+========================================= */
+
+.stats-grid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f4f8ff, #ffffff);
+  padding: 18px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.stat-card h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3a7bd5;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.stat-card p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* Highlight ETA */
+#eta {
+  color: #3a7bd5;
+}
+
+/* =========================================
+   ROUTE FINDER
+========================================= */
+
+.card label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #2c5364;
+}
+
+#fromStop,
+#toStop,
+textarea,
+input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid #dfe6f2;
+  background: #f9fbff;
+  transition: 0.3s ease;
+}
+
+#fromStop:focus,
+#toStop:focus,
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: #3a7bd5;
+  box-shadow: 0 0 0 3px rgba(58,123,213,0.15);
+  background: white;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.card button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* =========================================
+   ROUTE RESULTS
+========================================= */
+
+#routeResult {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f4f8ff;
+  border-radius: 14px;
+  border-left: 5px solid #3a7bd5;
+}
+
+#routeResult div {
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+#routeResult p {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+/* =========================================
+   ALERT BOX
+========================================= */
+
+#arrivalAlert {
+  background: #fff3cd;
+  border-left: 6px solid #f39c12;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .passenger-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  #map-wrapper {
+    height: 300px;
+  }
+
+  .stat-card p {
+    font-size: 18px;
+  }
+
+  main {
+    margin: 20px auto;
+  }
+}
