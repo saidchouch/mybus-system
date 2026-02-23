@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="driverLogin"></title>
+
+<link rel="stylesheet" href="driver.css">
+
+<style>
+
+/* =========================================
+   MODERN DRIVER LOGIN – CLEAN VERSION
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   COMPACT HEADER
+========================================= */
+
+.driver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  color: white;
+}
+
+.driver-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Language Select Modern */
+
+.language-select {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  backdrop-filter: blur(6px);
+}
+
+.language-select option {
+  color: black;
+}
+
+/* =========================================
+   MAIN CENTER
+========================================= */
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.card {
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  animation: fadeIn 0.6s ease;
+}
+
+.card h2 {
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 19px;
+  color: #1f4037;
+}
+
+/* LABEL */
+
+.card label {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 15px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* INPUTS */
+
+.card input,
+.card select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.card input:focus,
+.card select:focus {
+  border-color: #1f4037;
+  box-shadow: 0 0 0 3px rgba(31,64,55,0.2);
+}
+
+/* BUTTON */
+
+.card button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   RTL SUPPORT
+========================================= */
+
+body[dir="rtl"] .driver-header {
+  flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .card {
+  text-align: right;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .driver-header {
+    padding: 15px 20px;
+  }
+
+  .driver-title {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 25px 20px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="driver-header">
+  <div class="driver-title" data-i18n="driverLogin"></div>
+
+  <select class="language-select" onchange="setLanguage(this.value)">
+    <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ar">العربية</option>
+    </select>
+</header>
+
+<main>
+  <div class="card">
+
+    <h2 data-i18n="driverLogin"></h2>
+
+    <label data-i18n="driverId"></label>
+    <input type="text" id="driverId" data-i18n-placeholder="enterDriverId">
+
+    <label data-i18n="busId"></label>
+    <input type="text" id="busId" data-i18n-placeholder="enterBusId">
+
+    <label data-i18n="busLine"></label>
+    <select id="busLine">
+      <option value="" data-i18n="selectLine"></option>
+      <option value="Line 1">Line 1</option>
+      <option value="Line 2">Line 2</option>
+      <option value="Line 3">Line 3</option>
+    </select>
+
+    <button onclick="loginDriver()" data-i18n="login"></button>
+
+  </div>
+</main>
+
+<script src="../assets/js/translations.js"></script>
+<script src="../assets/js/language.js"></script>
+<script src="driver.js"></script>
+
+</body>
+</html>

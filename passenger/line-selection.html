@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title data-i18n="routeSelectionTitle"></title>
+
+<link rel="stylesheet" href="../assets/css/global.css">
+<link rel="stylesheet" href="line-selection.css">
+</head>
+
+<body>
+
+<header class="main-header">
+  <div class="logo-section">
+    <h1 data-i18n="routeSelectionTitle"></h1>
+    <p data-i18n="routeSelectionSubtitle"></p>
+  </div>
+
+  <div class="header-controls">
+    <select class="language-select" onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+</header>
+
+<main class="selection-container">
+
+  <!-- CITY -->
+<!-- ROUTE FINDER -->
+<div class="card">
+  <h2 data-i18n="routeFinder"></h2>
+
+  <label>From:</label>
+  <select id="fromStop"></select>
+
+  <label>To:</label>
+  <select id="toStop"></select>
+
+  <button onclick="findAvailableLines()" data-i18n="findRoute"></button>
+</div>
+
+  <!-- LINE -->
+  <div class="card">
+    <label data-i18n="availableLines"></label>
+    <select id="lineSelect"></select>
+  </div>
+
+  <!-- ALERT DISTANCE -->
+  <div class="card">
+    <label data-i18n="alertBeforeArrival"></label>
+    <select id="alertDistance">
+      <option value="4">4 km</option>
+      <option value="3">3 km</option>
+      <option value="2">2 km</option>
+      <option value="1">1 km</option>
+      <option value="0.5">500 meters</option>
+    </select>
+  </div>
+
+  <button onclick="startTracking()" data-i18n="startTracking"></button>
+
+</main>
+
+<!-- Language System -->
+<script src="../assets/js/translations.js"></script>
+<script src="../assets/js/language.js"></script>
+<script src="../assets/data/lines_table.js"></script>
+<script src="../assets/data/meknes_all_bus_lines.js"></script>
+<script src="line-selection.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("language") || "en";
+  document.querySelector(".language-select").value = savedLang;
+});
+</script>
+
+</body>
+</html>
